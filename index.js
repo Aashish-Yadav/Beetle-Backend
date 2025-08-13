@@ -16,7 +16,13 @@ app.get('/',(req,res) => {
 })
 
 mongoose.connect(process.env.MONGO_URI)
-
-app.listen(PORT, () => {
-    console.log(`App is listening at port :`,PORT)
+.then(()=>{
+    console.log("🔐 Database connected successfully");
+    app.listen(PORT, () => {
+    console.log(`📡 App is listening at port :`,PORT)
 })
+})
+.catch((Error)=>{
+    console.log("🛠️ Database connection error",error)
+})
+
