@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const cors = require('cors')
+const cors = require('cors');
+const AuthRoutes = require('./Routes/AuthRoutes')
 
 dotenv.config();
 
@@ -10,6 +11,8 @@ const PORT= process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors())
+
+app.use('/user',AuthRoutes);
 
 app.get('/',(req,res) => {
     res.send("hello server is fine")

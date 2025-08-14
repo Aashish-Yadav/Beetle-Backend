@@ -3,8 +3,6 @@ node_modules/
 
 # Environment variables (sensitive info like DB passwords, API keys)
 .env
-package-lock.json
-package.json
 
 # Logs
 logs
@@ -20,3 +18,5 @@ Thumbs.db
 # IDE/editor settings
 .vscode/
 .idea/
+dist/
+build/

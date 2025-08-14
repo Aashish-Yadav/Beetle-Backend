@@ -15,20 +15,22 @@ const UserSchema = mongoose.Schema({
         required:true
     },
     role:{
+        type:String,
         default:"user",
     },
     hasPaid:{
+        type:Boolean,
         default:false,
     },
     profilePic:{
         type:String,
     },
     playList:[{
-        type:mongoose.Schema.types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:'PlayList'
     }]
 },{timestamps:true})
 
-const User = mongoose.model(User,UserSchema)
+const User = mongoose.model('User',UserSchema)
 
 module.exports = User;
