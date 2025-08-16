@@ -21,12 +21,13 @@ exports.uploadSong = async (req, res) => {
       imageUrl = await UploadOnCloudinary(imageFile.path, "coverArt");
     }
 
+    const duration = Number(req.body.duration) || 0;
     // 4. Save in DB
     const song = new Song({
       title,
       artist,
       genre,
-      duration: 0, // you can later calculate with ffmpeg
+      duration:duration, // you can later calculate with ffmpeg
       file: audioUrl,
       coverart: imageUrl,
       uploadedBy
